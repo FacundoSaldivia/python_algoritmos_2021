@@ -29,12 +29,6 @@ def convertir_num_romano(roman_num):
 
 #8 Desarrollar un algoritmo que permita convertir un número entero en sistema decimal a sistema binario.
 
-# def binario(num):
-#     num = str(num)
-#     if not num:
-#         return 0
-#     else:
-#         return binario(num[:-1]) * 2 + int(num[-1])
 
 def binario(num):
     num = str(num)
