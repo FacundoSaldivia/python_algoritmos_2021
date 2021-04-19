@@ -47,19 +47,23 @@ def binario(num):
 # A. sacar los objetos de la mochila de a uno a la vez hasta encontrar un sable de luz o que no
 # queden más objetos en la mochila;
 # B. determinar si la mochila contiene un sable de luz y cuantos objetos fueron necesarios sa-
-# car para encontrarlo;
+# car para encontrarlo 
 # C. Utilizar un vector para representar la mochila.
 
 mochila = ['botella', 'celular','sable de luz','billetera']
 
-def usar_la_fuerza(lista):
+def usar_la_fuerza(lista, cantObj):
     if lista[0] == 'sable de luz':
-        return lista[0]
+        return lista[0], 'posicion:', cantObj - len(lista) + 1
     else:
         lista.pop(0)
-        return usar_la_fuerza(lista)
+        if (len(mochila) < 1):
+            return 'No hay ningun sable en la mochila'
+        else:
+            return usar_la_fuerza(lista, cantObj)
+        
 
-
+print(usar_la_fuerza(mochila,len(mochila)))
 #23 Salida del laberinto. Encontrar un camino que permita salir de un laberinto definido en una
 # matriz de [n x n], solo se puede mover de a una casilla a la vez –no se puede mover en diagonal–
 # y que la misma sea adyacente y no esté marcada como pared. Se comenzará en la casilla (0, 0)
@@ -114,4 +118,3 @@ def res_laberinto(p1,p2,laberinto):
             p2 = p2 -1
         return res_laberinto(p1,p2,laberinto)
 
-res_laberinto(0,0,laberinto) 
