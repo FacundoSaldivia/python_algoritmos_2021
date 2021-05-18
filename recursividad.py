@@ -118,3 +118,4 @@ def res_laberinto(p1,p2,laberinto):
             p2 = p2 -1
         return res_laberinto(p1,p2,laberinto)
 
+res_laberinto(0,0,laberinto)
