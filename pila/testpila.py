@@ -66,59 +66,59 @@ from random import randint
 
 # d. indicar la cantidad de capturas realizadas por cada cazarrecompensas.
 
-pila_r_boba = Pila()
-pila_r_din = Pila()
-pila_aux = Pila()
-boba = [{"planeta":"Eadu","rehen":"Juan Solo","recompensa":69,},{"planeta":"Endor","rehen":"Gaston","recompensa":299,},{"planeta":"Exegol","rehen":"Joaquin","recompensa":420,},{"planeta":"Eadu","rehen":"Han Solo","recompensa":63,},{"planeta":"Exegol","rehen":"Fionna","recompensa":99,}]
+# pila_r_boba = Pila()
+# pila_r_din = Pila()
+# pila_aux = Pila()
+# boba = [{"planeta":"Eadu","rehen":"Juan Solo","recompensa":69,},{"planeta":"Endor","rehen":"Gaston","recompensa":299,},{"planeta":"Exegol","rehen":"Joaquin","recompensa":420,},{"planeta":"Eadu","rehen":"Han Solo","recompensa":63,},{"planeta":"Exegol","rehen":"Fionna","recompensa":99,}]
 
-din = [{"planeta":"Tierra","rehen":"Macri","recompensa":100},{"planeta":"Endor","rehen":"Alibaba","recompensa":22},{"planeta":"Marte","rehen":"Elon Musk","recompensa":200},{"planeta":"Krypton","rehen":"Jor-El","recompensa":1}]
+# din = [{"planeta":"Tierra","rehen":"Macri","recompensa":100},{"planeta":"Endor","rehen":"Alibaba","recompensa":22},{"planeta":"Marte","rehen":"Elon Musk","recompensa":200},{"planeta":"Krypton","rehen":"Jor-El","recompensa":1}]
 
-def cargar_pila(pila,lista):
-    for dic in lista:
-        pila.apilar(dic)
-cargar_pila(pila_r_boba,boba)
-cargar_pila(pila_r_din,din)
+# def cargar_pila(pila,lista):
+#     for dic in lista:
+#         pila.apilar(dic)
+# cargar_pila(pila_r_boba,boba)
+# cargar_pila(pila_r_din,din)
 
 
-def a_planetas_visitados(pila,pilaAux):
-    print("PLANETAS VISITADOS SEGUN ORDEN")
-    while(not pila.pila_vacia()):
-        pilaAux.apilar(pila.desapilar())
-    while(not pilaAux.pila_vacia()):
-        pj = pilaAux.desapilar()
-        print(pj["planeta"])
-        pila.apilar(pj)
+# def a_planetas_visitados(pila,pilaAux):
+#     print("PLANETAS VISITADOS SEGUN ORDEN")
+#     while(not pila.pila_vacia()):
+#         pilaAux.apilar(pila.desapilar())
+#     while(not pilaAux.pila_vacia()):
+#         pj = pilaAux.desapilar()
+#         print(pj["planeta"])
+#         pila.apilar(pj)
         
-a_planetas_visitados(pila_r_boba,pila_aux)
-a_planetas_visitados(pila_r_din,pila_aux)
+# a_planetas_visitados(pila_r_boba,pila_aux)
+# a_planetas_visitados(pila_r_din,pila_aux)
 
-def b_creditos(pila,pilaAux):
-    contador = 0
-    while(not pila.pila_vacia()):
-        pilaAux.apilar(pila.desapilar())
-    while(not pilaAux.pila_vacia()):
-        pj = pilaAux.desapilar()
-        contador += pj["recompensa"]
-        pila.apilar(pj)
-    return "Recompensa total:", contador
+# def b_creditos(pila,pilaAux):
+#     contador = 0
+#     while(not pila.pila_vacia()):
+#         pilaAux.apilar(pila.desapilar())
+#     while(not pilaAux.pila_vacia()):
+#         pj = pilaAux.desapilar()
+#         contador += pj["recompensa"]
+#         pila.apilar(pj)
+#     return "Recompensa total:", contador
 
-print(b_creditos(pila_r_din,pila_aux))
-print(b_creditos(pila_r_boba,pila_aux))
+# print(b_creditos(pila_r_din,pila_aux))
+# print(b_creditos(pila_r_boba,pila_aux))
 
-def c_d(pila,pilaAux):
-    contador = 0
-    while(not pila.pila_vacia()):
-        pilaAux.apilar(pila.desapilar())
-    while(not pilaAux.pila_vacia()):
-        contador += 1
-        pj = pilaAux.desapilar()
-        if pj["rehen"] == "Han Solo":
-            print(pj["rehen"],' fue capturado en la mision nro:',contador)
-        pila.apilar(pj)
-    return 'cant de misiones',contador
+# def c_d(pila,pilaAux):
+#     contador = 0
+#     while(not pila.pila_vacia()):
+#         pilaAux.apilar(pila.desapilar())
+#     while(not pilaAux.pila_vacia()):
+#         contador += 1
+#         pj = pilaAux.desapilar()
+#         if pj["rehen"] == "Han Solo":
+#             print(pj["rehen"],' fue capturado en la mision nro:',contador)
+#         pila.apilar(pj)
+#     return 'cant de misiones',contador
 
-print(c_d(pila_r_boba,pila_aux))
-print(c_d(pila_r_din,pila_aux))
+# print(c_d(pila_r_boba,pila_aux))
+# print(c_d(pila_r_din,pila_aux))
 #24. Dada una pila de personajes de Marvel Cinematic Universe (MCU), de los cuales se dispone de su nombre y la cantidad de películas de la saga en la que participó, implementar las funciones necesarias para resolver las siguientes actividades:
 
 # a. determinar en qué posición se encuentran Rocket Raccoon y Groot, tomando como posición uno la cima de la pila;
