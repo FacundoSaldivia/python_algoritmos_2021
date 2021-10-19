@@ -84,7 +84,6 @@ laberinto = [[' ','0','0','0','0','0','0','0','0','0','0','0'],
              ['0','0','0','0','0','0','0','0','0','0','0','0']]
 
 
- 
 def res_laberinto(p1,p2,laberinto):
     if laberinto[p1+1][p2] == 'S'or laberinto[p1][p2+1] == 'S':
         return print('RESUELTO!')
