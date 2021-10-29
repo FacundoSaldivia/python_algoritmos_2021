@@ -105,7 +105,7 @@ class Lista(object):
     
     def barrido_jedi(self):
         for elemento in self.__elementos:
-            print(elemento['name'], elemento['species'])
+            print(elemento['nombre'], elemento['especie'])
     
     def barrido_green(self):
         for elemento in self.__elementos:
