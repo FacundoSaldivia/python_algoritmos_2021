@@ -38,7 +38,7 @@ from random import randint
 # def ver_villanos(arbol):
 #     if (arbol.info is not None):
 #         ver_villanos(arbol.izq)
-#     if not arbol.datos['esHeroe']:
+#     if not arbol.datos['villano']:
 #         print(arbol.info)
 #     if (arbol.der is not None):
 #         ver_villanos(arbol.der)
