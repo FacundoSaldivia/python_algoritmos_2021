@@ -3,9 +3,10 @@ from cola import Cola
 
 class Arbol(object):
 
-    def __init__(self, info=None, datos=None):
+    def __init__(self, info=None,frecuencia=None, datos=None):
         self.info = info
         self.datos = datos
+        self.frecuencia = frecuencia 
         self.der = None
         self.izq = None
         self._altura = 0
@@ -86,17 +87,6 @@ class Arbol(object):
             print(self.info, self.datos)
             if(self.der is not None):
                 self.der.inorden()
-    def inorden_criatura_derrotado(self):
-        if(self.info is not None):
-            if(self.izq is not None):
-                self.izq.inorden_criatura_derrotado()
-            if (self.datos['Derrotado'] == '-'):
-                aux = 'nadie'
-            else:
-                aux = self.datos['Derrotado']
-            print(self.info,'derrotado por ', aux)
-            if(self.der is not None):
-                self.der.inorden_criatura_derrotado()
 
     def postorden(self):
         if(self.info is not None):
@@ -242,10 +232,10 @@ class Arbol(object):
             if(self.izq is not None):
                 self.izq.conta_criaturas_derrotadas(dic)
             #! chequear que no sea vacio
-            if(self.datos['Derrotado'] in dic):
-                dic[self.datos['Derrotado']] += 1
+            if(self.datos['derrotado _por'] in dic):
+                dic[self.datos['derrotado_por']] += 1
             else:
-                dic[self.datos['Derrotado']] = 1
+                dic[self.datos['derrotado_por']] = 1
             print(self.info, self.datos)
             if(self.der is not None):
                 self.der.conta_criaturas_derrotadas(dic)

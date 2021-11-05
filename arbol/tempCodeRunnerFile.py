@@ -1,1 +1,1 @@
-print(arbol.inorden())
+ # return lista_criaturas
