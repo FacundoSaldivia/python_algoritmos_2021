@@ -1,6 +1,8 @@
 from cola import Cola
 from random import randint
 
+from heap import HeapMax
+
 #PAGINA 95 EJ: 11,12 y 16
 
 #11 Dada una cola con personajes de la saga Star Wars, de los cuales se conoce su nombre y planeta de origen. Desarrollar las funciones necesarias para resolver las siguientes actividades:
@@ -103,36 +105,40 @@ from random import randint
 # f. cargue dos documentos de empleados y uno de gerente.
 # g. imprima todos los documentos de la cola de impresión.
 
+empleado = 1
+ti = 2
+gerente = 3
 
-# cola_priodidad = Cola()
+cola_prioridad = HeapMax()
 
+documentos = [['Investigacion',empleado],['Informe',empleado],['Resumen',empleado]]
+# a. cargue tres documentos de empleados (cada documento se representa solamente con un nombre)
+cola_prioridad.arribo_muchos(documentos)
 
-# def cargar_cola(cola):
-#     cant_doc = int(input('Cuantos documentos desea cargar ? '))
-#     for i in range(cant_doc):
-#         print('Que tipo de documento desea cargar')
-#         criterio = int(input('1- Empleados, 2- Staff, 3- Gerente'))
-#         titulo = input('Titulo del Documento: ')
-#         documento = {"tipo":criterio,"nombre":titulo}
-#         if cola.cola_vacia():
-#             cola.arribo(documento)
-#         else:
-#             rotar = True
-#             while rotar:
-#                 if cola.en_frente()["tipo"] >= documento["tipo"]:
-#                     cola.mover_final()
-#                     cola.arribo(documento)
-#                     rotar = False
-#                 else:
-#                     cola.mover_final()
+# b. imprima el primer documento de la cola (solamente mostrar el nombre de este por pantalla).
+# print(cola_prioridad.atencion()[1])
 
-# cargar_cola(cola_priodidad)
+# c. cargue dos documentos del staff de TI.
+documentos_2 = [['Revision',ti],['Semi informe',ti]]
+cola_prioridad.arribo_muchos(documentos_2)
 
-# elementos = 0
-# while elementos < cola_priodidad.tamanio():
-#     print(cola_priodidad.en_frente())
-#     cola_priodidad.mover_final()
-#     elementos += 1
+# d. cargue un documento del gerente.
+documentos_3 = [['Revision - gerencial',gerente]]
+cola_prioridad.arribo_muchos(documentos_3)
+
+# e. imprima los dos primeros documentos de la cola.
+# print(cola_prioridad.atencion())
+# print(cola_prioridad.atencion())
+
+# f. cargue dos documentos de empleados y uno de gerente.
+
+documentos_4 = [['Documento empleado',empleado],['Documento empleado2',empleado],['Documento gerente',gerente]]
+cola_prioridad.arribo_muchos(documentos_4)
+
+# g. imprima todos los documentos de la cola de impresión.
+while not cola_prioridad.vacio():
+    print(cola_prioridad.atencion())
+
 
 #Se tienen una cola con personajes de Marvel Cinematic Universe (MCU), de los cuales se conoce el nombre del personaje, el nombre del superhéroe y su género (Masculino M y Femenino F) –por ejemplo {Tony Stark, Iron Man, M}, {Steve Rogers, Capitán América, M}, {Natasha Romanoff, Black Widow, F}, etc., desarrollar un algoritmo que resuelva las siguientes actividades:
 
@@ -143,60 +149,60 @@ from random import randint
 # e. mostrar todos datos de los superhéroes o personaje cuyos nombres comienzan con la letra S;
 # f. determinar si el personaje Carol Danvers se encuentra en la cola e indicar su nombre de superhéroes.
 
-cola_pj_marvel = Cola()
+# cola_pj_marvel = Cola()
 
-pj_marvel = [{"name":"Tony Stark", "s-name":"Iron Man","S":"M"}, {"name":"Steve Rogers", "s-name":"Capitán América","S": "M"}, {"name": "Natasha Romanoff","s-name" :"Black Widow","S":"F"},{"name":"Scott Lang","s-name":"Ant-Man","S":"M"},{"name":"Carol Denvers","s-name":"Capitana Marvel","S":"F"},{"name":"Peter Parker","s-name":"Spiderman","S":"M"},{"name":"Stephen Strange","s-name":"Doctor Strange","S":"M"}]
+# pj_marvel = [{"name":"Tony Stark", "s-name":"Iron Man","S":"M"}, {"name":"Steve Rogers", "s-name":"Capitán América","S": "M"}, {"name": "Natasha Romanoff","s-name" :"Black Widow","S":"F"},{"name":"Scott Lang","s-name":"Ant-Man","S":"M"},{"name":"Carol Denvers","s-name":"Capitana Marvel","S":"F"},{"name":"Peter Parker","s-name":"Spiderman","S":"M"},{"name":"Stephen Strange","s-name":"Doctor Strange","S":"M"}]
 
-for pj in pj_marvel:
-    cola_pj_marvel.arribo(pj)
-# a. determinar el nombre del personaje de la superhéroe Capitana Marvel;
-def encontrar_por_nombre_de_superheroe(cola,snombre):
-    elementos = 0
-    while elementos < cola.tamanio():
-        if cola.en_frente()["s-name"] == snombre:
-            print("El nombre de ", snombre," es: ",cola.en_frente()["name"])
-        elementos += 1
-        cola.mover_final()   
-encontrar_por_nombre_de_superheroe(cola_pj_marvel,"Capitana Marvel")
+# for pj in pj_marvel:
+#     cola_pj_marvel.arribo(pj)
+# # a. determinar el nombre del personaje de la superhéroe Capitana Marvel;
+# def encontrar_por_nombre_de_superheroe(cola,snombre):
+#     elementos = 0
+#     while elementos < cola.tamanio():
+#         if cola.en_frente()["s-name"] == snombre:
+#             print("El nombre de ", snombre," es: ",cola.en_frente()["name"])
+#         elementos += 1
+#         cola.mover_final()   
+# encontrar_por_nombre_de_superheroe(cola_pj_marvel,"Capitana Marvel")
 
-# b. mostrar los nombre de los superhéroes femeninos;
-# c. mostrar los nombres de los personajes masculinos;
-def mostrar_pjs_x_sexo(cola,sexo):
-    elementos = 0
-    while elementos < cola.tamanio():
-        if cola.en_frente()["S"] == sexo:
-            print(cola.en_frente()["name"])
-        elementos += 1
-        cola.mover_final() 
-print("")
-print("Sexo Masculino")
-mostrar_pjs_x_sexo(cola_pj_marvel,"M")
-print("")
-print("Sexo Femenino")
-mostrar_pjs_x_sexo(cola_pj_marvel,"F")
+# # b. mostrar los nombre de los superhéroes femeninos;
+# # c. mostrar los nombres de los personajes masculinos;
+# def mostrar_pjs_x_sexo(cola,sexo):
+#     elementos = 0
+#     while elementos < cola.tamanio():
+#         if cola.en_frente()["S"] == sexo:
+#             print(cola.en_frente()["name"])
+#         elementos += 1
+#         cola.mover_final() 
+# print("")
+# print("Sexo Masculino")
+# mostrar_pjs_x_sexo(cola_pj_marvel,"M")
+# print("")
+# print("Sexo Femenino")
+# mostrar_pjs_x_sexo(cola_pj_marvel,"F")
 
-# d. determinar el nombre del superhéroe del personaje Scott Lang;
-def encontrar_por_nombre(cola,nombre):
-    texto = ('No se encontro ',nombre,' chequea si esta bien escrito y sus mayusculas')
-    elementos = 0
-    while elementos < cola.tamanio():
-        if cola.en_frente()["name"] == nombre:
-            texto = nombre," es: ",cola.en_frente()["s-name"]
-        elementos += 1
-        cola.mover_final()   
-    print(texto)
+# # d. determinar el nombre del superhéroe del personaje Scott Lang;
+# def encontrar_por_nombre(cola,nombre):
+#     texto = ('No se encontro ',nombre,' chequea si esta bien escrito y sus mayusculas')
+#     elementos = 0
+#     while elementos < cola.tamanio():
+#         if cola.en_frente()["name"] == nombre:
+#             texto = nombre," es: ",cola.en_frente()["s-name"]
+#         elementos += 1
+#         cola.mover_final()   
+#     print(texto)
 
-encontrar_por_nombre(cola_pj_marvel,"Scott Lang")
+# encontrar_por_nombre(cola_pj_marvel,"Scott Lang")
 
-# e. mostrar todos datos de los superhéroes o personaje cuyos nombres comienzan con la letra S;
-def encontrar_por_primera_letra_sname(cola,letra):
-    elementos = 0
-    lista_pj = []
-    while elementos < cola.tamanio():
-        if cola_pj_marvel.en_frente()["name"][0] == letra.upper():
-            lista_pj.append(cola_pj_marvel.en_frente())
-        elementos += 1
-        cola.mover_final() 
-    for pj in lista_pj:
-        print(pj)
-encontrar_por_primera_letra_sname(cola_pj_marvel,"s")
+# # e. mostrar todos datos de los superhéroes o personaje cuyos nombres comienzan con la letra S;
+# def encontrar_por_primera_letra_sname(cola,letra):
+#     elementos = 0
+#     lista_pj = []
+#     while elementos < cola.tamanio():
+#         if cola_pj_marvel.en_frente()["name"][0] == letra.upper():
+#             lista_pj.append(cola_pj_marvel.en_frente())
+#         elementos += 1
+#         cola.mover_final() 
+#     for pj in lista_pj:
+#         print(pj)
+# encontrar_por_primera_letra_sname(cola_pj_marvel,"s")
