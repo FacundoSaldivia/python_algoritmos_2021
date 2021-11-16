@@ -1,0 +1,5 @@
+grafo_templos.insertar_vertice('Olimpia',{'latitud':5,'longitud':21})
+# grafo_templos.insertar_vertice('Delfos',{'latitud':14,'longitud':2})
+# grafo_templos.insertar_vertice('Sunion',{'latitud':12,'longitud':16})
+# grafo_templos.insertar_vertice('Efeso',{'latitud':2,'longitud':19})
+# grafo_templos.insertar_vertice('Acropolis',{'latitud':12,'longitud':2})
